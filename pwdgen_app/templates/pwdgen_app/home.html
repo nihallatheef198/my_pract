@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1>welocme to password generator</h1>
+      <h3><a href="{% url "about" %}">About</a></h3>
+      <form  action="{% url "pass"%}" method="POST">
+        {% csrf_token %}
+        <label for="len">length of password</label>
+        <select name="len">
+          <option value="8">8</option>
+          <option value="10" selected="selected">10</option>
+          <option value="12">12</option>
+        </select><br>
+        <input type="checkbox" name="caps" value="caps">
+        <label for="caps">req. caps</label><br>
+        <input type="checkbox" name="num" value="num">
+        <label for="caps">req. numeric</label><br>
+        <input type="checkbox" name="schr" value="schr">
+        <label for="caps">special chars</label><br>
+        <button type="submit" name="button" class="btn btn-primary">Gen</button>
+      </form>
+    </body>
+    </div>
+</html>
